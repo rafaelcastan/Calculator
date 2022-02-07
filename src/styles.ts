@@ -1,5 +1,14 @@
 import styled  from 'styled-components';
 
+export const Background = styled.div `
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    height:100vh;
+    background: ${props=> props.theme.backgroundColors.main};
+    color: ${props=> props.theme.textColors.tertiary};
+`
+
 export const CalcDiv = styled.div `
     display: flex;
     flex-direction: column;
@@ -7,6 +16,18 @@ export const CalcDiv = styled.div `
     background: ${props=> props.theme.backgroundColors.main};
     padding: 28px 25px;
     color: ${props=> props.theme.textColors.tertiary};
+    width:100%;
+    max-width: 500px;
+
+    @media (max-width:280px) {
+        max-width: 100%;
+        padding: 15px;
+    }
+
+    @media (min-width:768px) {
+        margin-top: auto;
+        margin-bottom: auto;
+    }
 `
 
 export const CalcHeader = styled.div`
@@ -68,9 +89,10 @@ export const CalcScreen = styled.div`
 `
 
 export const CalcScreenOperation = styled.div`
-
-    padding-bottom: 5px;
+    padding-top: 10px;
+    padding-bottom: 15px;
     padding-right: 25px;
+    padding-left: 10px;
 
     span {
         font-size: 35px;

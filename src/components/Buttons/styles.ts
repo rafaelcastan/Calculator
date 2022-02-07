@@ -10,6 +10,11 @@ export const ButtonsGrid = styled.div`
     border-radius: 10px;
     background: ${props=> props.theme.backgroundColors.toggleAndKeypad};
     margin-top: 25px;
+
+    @media (min-width: 768px) {
+        grid-column-gap: 20px;
+        grid-row-gap: 25px;
+    }
 `
 
 export const NumberSymbolButton = styled.div`
@@ -24,7 +29,6 @@ export const NumberSymbolButton = styled.div`
     color: ${props=> props.theme.textColors.primary};
     font-size: 32px;
     font-weight: bold;
-
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -40,6 +44,11 @@ export const NumberSymbolButton = styled.div`
     :active {
         box-shadow: 0 2px ${props=> props.theme.shadowsColors.numbersAndOperators};
         transform: translateY(4px);
+    }
+    
+    @media (min-width: 768px) {
+        height: 45px;
+        border-radius: 8px;
     }
 
 `
@@ -77,6 +86,11 @@ export const TextButton = styled.div`
     :nth-last-child( -n + 2 )  {
 	    grid-column: span 2;
     }
+
+    @media (min-width: 768px) {
+        height: 45px;
+        border-radius: 8px;
+    }
 `
 export const EqualButton = styled.div`
     display:flex;
@@ -107,5 +121,10 @@ export const EqualButton = styled.div`
     :active {
         box-shadow: 0 2px ${props=> props.theme.shadowsColors.equalButton};
         transform: translateY(4px);
+    }
+
+    @media (min-width: 768px) {
+        height: 45px;
+        border-radius: 8px;
     }
 `
