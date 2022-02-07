@@ -110,12 +110,12 @@ function App() {
       operationsToBeDone = operationsToBeDone.slice(0,-1)
     }
     do {
-      if (operationsToBeDone.indexOf('*') > -1 || operationsToBeDone.indexOf('/') > -1){
+      if (operationsToBeDone.indexOf('*') > -1 || operationsToBeDone.indexOf('/') > -1){ //verify if exists one multiplication or division operation and what come first
         if( operationsToBeDone.indexOf('*') > operationsToBeDone.indexOf('/') ) {
-          const result = numbersToBeCalc[operationsToBeDone.indexOf('*')] * numbersToBeCalc[operationsToBeDone.indexOf('*') + 1]
-          numbersToBeCalc.splice( operationsToBeDone.indexOf('*') + 1, 1)
+          const result = numbersToBeCalc[operationsToBeDone.indexOf('*')] * numbersToBeCalc[operationsToBeDone.indexOf('*') + 1] //calc the multiplication using the numbers before and after the operator
+          numbersToBeCalc.splice( operationsToBeDone.indexOf('*') + 1, 1) //remove the number that comes after the operator
           // eslint-disable-next-line no-loop-func
-          numbersToBeCalc = numbersToBeCalc.map((number, id)=>{
+          numbersToBeCalc = numbersToBeCalc.map((number, id)=>{ //replace the number that comes before the operator with the result
             if (id === operationsToBeDone.indexOf('*')) {
               return result
             }
@@ -124,7 +124,7 @@ function App() {
           operationsToBeDone.splice(operationsToBeDone.indexOf('*'), 1);
         }
         else {
-          if(numbersToBeCalc[operationsToBeDone.indexOf('/') + 1] === 0) {
+          if(numbersToBeCalc[operationsToBeDone.indexOf('/') + 1] === 0) { //can't do division by zero so we verify it here
             alert('Não é possível dividir por zero')
             operationsToBeDone = []
             numbersToBeCalc = []
@@ -177,8 +177,6 @@ function App() {
       setCreatingNumber('');
     }
   }
-
-  console.log(operators)
 
 
   return (
